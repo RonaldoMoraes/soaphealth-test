@@ -34,7 +34,7 @@ function validateUpdateContact(req: Request, res: Response, next: NextFunction) 
 
 function handlePhoneNumber(req: Request, res: Response, next: NextFunction) {
   repository.findByPhone(req.body.phoneNumber).then((existingContact) => {
-    if (existingContact) {
+    if (existingContact && req.params?.id !== existingContact.id.toString()) {
       return res.status(400).json({ error: 'Contact already exists' });
     }
 

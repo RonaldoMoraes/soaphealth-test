@@ -14,10 +14,10 @@ const router = Router();
 /**
  * API Endpoints
  */
-router.get('/contacts', getContactsHandler);
-router.post('/contacts', validateCreateContact, createContactHandler);
-router.put('/contacts/:id', validateUpdateContact, updateContactHandler);
-router.delete('/contacts/:id', deleteContactHandler);
+router.get('/api/contacts', getContactsHandler);
+router.post('/api/contacts', validateCreateContact, createContactHandler);
+router.put('/api/contacts/:id', validateUpdateContact, updateContactHandler);
+router.delete('/api/contacts/:id', deleteContactHandler);
 /**
  * END API Endpoints
  */
