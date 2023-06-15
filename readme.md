@@ -63,7 +63,39 @@ $ cd soaphealth-test
 # Run docker-compose
 $ docker-compose up --build
 
-# Running app, go and check out the output files in ./data directory ❤️
+# Running apps ❤️
+```
+
+### As an alternative way, you can still run the applications locally using your machine Node.js
+
+```bash
+# Clone this repository
+$ git clone https://github.com/RonaldoMoraes/soaphealth-test
+
+# Enter in the backend project folder
+$ cd soaphealth-test/backend
+
+# Install dependencies and configure prisma
+$ npm install
+$ npx prisma generate
+
+# Run with npm
+$ npm run dev
+
+# Running the API ❤️
+```
+&
+```bash
+# In other Terminal window, enter in the frontend project folder
+$ cd soaphealth-test/phonebook-app
+
+# Install dependencies
+$ npm install
+
+# Run docker-composewith npm
+$ npm run start
+
+# Running the web app ❤️
 ```
 
 ### Conclusion
@@ -74,4 +106,4 @@ There are some things that could be improved, like:
 - Make a better frontend design
 - Tests on frontend!
 
-Hope you've enjoyed! Any doubts, just let me know!
+Hope you've enjoyed and we can talk about the project! Any doubts, just let me know!
