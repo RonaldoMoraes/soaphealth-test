@@ -1,6 +1,6 @@
 import { Contact } from "./types";
 
-const baseUrl = 'http://localhost:3001/api';
+const baseUrl = process.env.API_URL || 'http://localhost:3001/api';
 
 export const createContact = async (contactData: Omit<Contact, 'id'>): Promise<Contact> => {    
     try {
