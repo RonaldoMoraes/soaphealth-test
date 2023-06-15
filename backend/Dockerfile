@@ -7,8 +7,9 @@ COPY package*.json ./
 
 RUN npm install
 
-# COPY . .
-# RUN npm run build
+COPY . .
+
+RUN npm run build
 
 COPY dist /usr/src/app/dist
 

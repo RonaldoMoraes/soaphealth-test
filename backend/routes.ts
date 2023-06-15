@@ -6,7 +6,7 @@ import {
   updateContactHandler,
   deleteContactHandler,
 } from './src/controllers/contactsController';
-import errorHandler from './src/errors/errorHandler';
+import { errorHandler } from './src/errors/errorHandler';
 import { validateCreateContact, validateUpdateContact } from './src/validators/contactsValidator';
 
 const router = Router();

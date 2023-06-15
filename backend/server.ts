@@ -1,7 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import routes from './routes';
-import errorHandler from './src/errors/errorHandler';
 
 const app = express();
 
