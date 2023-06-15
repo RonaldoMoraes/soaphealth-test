@@ -3,7 +3,9 @@ import ContactsService from '../services/contactsService';
 const contactsService = new ContactsService();
 
 export const getContactsHandler = async (req: Request, res: Response) => {
-  const contacts = await contactsService.getContacts();
+  const lastName = req.query?.lastName as string;
+  
+  const contacts = await contactsService.getContacts(lastName || '');
   res.json(contacts);
 };
 

@@ -14,8 +14,8 @@ class ContactsService implements ContactsServiceInterface {
     return await this.repository.findByPhone(phoneNumber);
   }
 
-  async getContacts(): Promise<Contact[]> {
-    return await this.repository.getContacts();
+  async getContacts(lastName: string = ''): Promise<Contact[]> {
+    return await this.repository.getContacts(lastName);
   }
 
   async createContact(firstName: string, lastName: string, phoneNumber: string): Promise<Contact> {

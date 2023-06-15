@@ -16,8 +16,11 @@ class ContactsRepository implements ContactsRepositoryInterface {
     });
   }
 
-  async getContacts(): Promise<Contact[]> {
-    return await this.query.findMany();
+  async getContacts(lastName: string = ''): Promise<Contact[]> {
+    const where: object = lastName ? {
+      where: { lastName: { contains: lastName } },
+    } : {};
+    return await this.query.findMany(where);
   }
 
   async createContact(data: any): Promise<Contact> {

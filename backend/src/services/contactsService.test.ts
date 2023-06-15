@@ -20,7 +20,7 @@ describe('Contacts Service', () => {
             await prisma.contact.create({ data: contact });
         }
         
-        const contacts = await contactService.getContacts();
+        const contacts = await contactService.getContacts('');
         
         expect(contacts).toEqual(expect.arrayContaining(expectedContacts));
     });
