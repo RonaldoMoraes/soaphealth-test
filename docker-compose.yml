@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  web:
+    build: ./phonebook-app/
+    ports:
+      - 80:3000
+    environment:
+      - NODE_ENV=production
+      - API_URL=http://api:3001/api
+    depends_on:
+      - api
+    networks:
+      - web-api-network
+
+  api:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - ./backend:/usr/src/app
+    networks:
+      - web-api-network
+
+networks:
+  web-api-network:
