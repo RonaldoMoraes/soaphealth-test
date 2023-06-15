@@ -58,6 +58,15 @@ const App: React.FC = () => {
     }
   };
 
+  const handleSearch = async (keyword: string) => {
+    try {
+      const searchResults = await getContacts(keyword);
+      setContacts(searchResults);
+    } catch (error) {
+      console.error('Failed to fetch search results:', error);
+    }
+  };
+
   const openModal = () => {
     setSelectedContact(null);
     setIsModalOpen(true);
@@ -88,6 +97,7 @@ const App: React.FC = () => {
             onUpdateContact={handleUpdateContact}
             onDeleteContact={handleDeleteContact}
             onOpenModal={openEditModal}
+            onSearch={handleSearch}
           />
           <button className="btn btn-info text-white p-2" style={style.btn} onClick={openModal}>
             <i className="bi bi-plus"></i>Add Contact

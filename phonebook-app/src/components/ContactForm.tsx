@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Contact, ContactFormValues } from '../types';
+import { ContactFormValues } from '../types';
 
 interface ContactFormProps {
   onSubmit: (values: ContactFormValues) => void;

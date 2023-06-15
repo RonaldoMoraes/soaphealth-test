@@ -1,18 +1,21 @@
 import React from 'react';
 import { Contact } from '../types';
+import SearchBar from './SearchBar';
 
 interface ContactListProps {
   contacts: Contact[];
   onUpdateContact: (updatedContact: Contact) => void;
   onDeleteContact: (id: number) => void;
   onOpenModal: (contact: Contact) => void;
+  onSearch: (keyword: string) => void;
 }
 
 const ContactList: React.FC<ContactListProps> = ({
   contacts,
   onUpdateContact,
   onDeleteContact,
-  onOpenModal
+  onOpenModal,
+  onSearch
 }) => {
   const handleEditContact = (contact: Contact) => {
     onOpenModal(contact);
@@ -30,12 +33,14 @@ const ContactList: React.FC<ContactListProps> = ({
       alignItems: 'center',
       padding: '0.5rem 0',
       borderBottom: '1px solid #ccc',
+      cursor: 'pointer'
     }
   };
 
   return (
     <div className='p-2'>
       <h2>Contacts</h2>
+      <SearchBar onSearch={onSearch}></SearchBar>
       {contacts.length === 0 ? (
         <p>No contacts available.</p>
       ) : (
