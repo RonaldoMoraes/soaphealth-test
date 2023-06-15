@@ -9,9 +9,9 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+# RUN npm run build
 
-COPY dist /usr/src/app/dist
+# COPY dist /usr/src/app/dist
 
 COPY prisma/*.prisma /usr/src/app/prisma/
 
