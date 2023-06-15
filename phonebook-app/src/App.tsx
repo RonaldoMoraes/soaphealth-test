@@ -72,23 +72,36 @@ const App: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  const style = {
+    btn: {
+      // maxHeight: '40px',
+    }
+  };
+
   return (
-    <div>
-      <h1>Contact PhoneBook</h1>
-      <button onClick={openModal}>Add Contact</button>
-      <ContactList
-        contacts={contacts}
-        onUpdateContact={handleUpdateContact}
-        onDeleteContact={handleDeleteContact}
-        onOpenModal={openEditModal}
-      />
-      {isModalOpen && (
-        <ContactModal
-          contact={selectedContact}
-          onSubmit={selectedContact ? handleUpdateContact : handleCreateContact}
-          onClose={closeModal}
-        />
-      )}
+    <div className="container mt-4">
+      <div className="row">
+        <h1 className="text-center mb-4">Phone Book App</h1>
+        <div className="justify-content-center flex-row">
+          <ContactList
+            contacts={contacts}
+            onUpdateContact={handleUpdateContact}
+            onDeleteContact={handleDeleteContact}
+            onOpenModal={openEditModal}
+          />
+          <button className="btn btn-info text-white p-2" style={style.btn} onClick={openModal}>
+            <i className="bi bi-plus"></i>Add Contact
+          </button>
+        </div>
+        {isModalOpen && (
+          <ContactModal
+            contact={selectedContact}
+            onSubmit={selectedContact ? handleUpdateContact : handleCreateContact}
+            onClose={closeModal}
+            isModalOpen={isModalOpen}
+          />
+        )}
+      </div>
     </div>
   );
 };

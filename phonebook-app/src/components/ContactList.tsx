@@ -18,25 +18,36 @@ const ContactList: React.FC<ContactListProps> = ({
     onOpenModal(contact);
   };
 
-  const handleDeleteContact = (id: number) => {
+  const handleDeleteContact = (id: number, event: React.FormEvent) => {
+    event.stopPropagation()
     onDeleteContact(id);
   };
 
+  const style = {
+    line: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '0.5rem 0',
+      borderBottom: '1px solid #ccc',
+    }
+  };
+
   return (
-    <div>
-      <h2>Contact List</h2>
+    <div className='p-2'>
+      <h2>Contacts</h2>
       {contacts.length === 0 ? (
         <p>No contacts available.</p>
       ) : (
-        <ul>
+        <div>
           {contacts.map((contact) => (
-            <li key={contact.id}>
+            <div style={style.line} key={contact.id} onClick={() => handleEditContact(contact)}>
               {contact.firstName} {contact.lastName} - {contact.phoneNumber}
-              <button onClick={() => handleEditContact(contact)}>Edit</button>
-              <button onClick={() => handleDeleteContact(contact.id)}>Delete</button>
-            </li>
+              {/* <button className=''>Edit</button> */}
+              <button className="btn btn-danger" onClick={(event) => handleDeleteContact(contact.id, event)}>Delete</button>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
